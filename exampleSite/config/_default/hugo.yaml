@@ -17,6 +17,7 @@ mainSections: ["posts"]  # Multiple values can be configured, e.g. ["posts", "bl
 permalinks:
   posts: /posts/:slug/
   projects: /projects/:slug/
+  snippets: /snippets/:slug/
   pages: /:slug/
 
 # pagination

@@ -89,3 +89,8 @@
     featuredProjects = "Избранные проекты"
     viewAll          = "Показать все"
     recentPosts      = "Последние статьи"
+
+
+[snippet]
+    empty    = "Пока нет сниппетов"
+    language = "Язык"

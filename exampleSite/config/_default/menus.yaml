@@ -45,6 +45,13 @@ main:
     params:
       icon: projects
 
+  - name: Snippets
+    weight: 5
+    pageRef: /snippets
+    parent: More
+    params:
+      icon: code
+
 
 
 # footer menu

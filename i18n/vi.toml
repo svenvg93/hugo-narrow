@@ -80,3 +80,8 @@
     featuredProjects = "Dự án nổi bật"
     viewAll          = "Xem tất cả"
     recentPosts      = "Bài viết mới"
+
+
+[snippet]
+    empty    = "Chưa có đoạn mã nào"
+    language = "Ngôn ngữ"

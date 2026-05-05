@@ -80,3 +80,8 @@
     featuredProjects = "特色專案"
     viewAll          = "查看全部"
     recentPosts      = "最近文章"
+
+
+[snippet]
+    empty    = "暫無程式碼片段"
+    language = "語言"

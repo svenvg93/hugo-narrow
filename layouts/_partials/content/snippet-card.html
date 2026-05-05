@@ -1,0 +1,61 @@
+{{/* Snippet card component - compact, code-focused, no cover image
+  @context {page} .page The snippet page object
+*/}}
+
+{{ $page := .page }}
+
+{{- $summaryContent := "" -}}
+{{- if $page.Params.description -}}
+  {{- $summaryContent = $page.Params.description -}}
+{{- else if $page.Params.summary -}}
+  {{- $summaryContent = $page.Params.summary -}}
+{{- else if $page.Summary -}}
+  {{- $summaryContent = $page.Summary | plainify | truncate 140 -}}
+{{- end -}}
+
+<article class="group h-full">
+  <a href="{{ $page.RelPermalink }}" class="block h-full">
+    <div
+      class="bg-card border-border hover:bg-primary/5 hover:border-primary/20 focus:ring-primary/20 relative flex h-full flex-col overflow-hidden rounded-xl border p-6 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.02] hover:shadow-lg focus:ring-2 focus:outline-none"
+    >
+      <!-- Language badge + title row -->
+      <div class="mb-3 flex items-start gap-3">
+        {{- if $page.Params.language -}}
+          <span class="bg-primary/10 text-primary mt-0.5 shrink-0 rounded-md px-2 py-0.5 font-mono text-xs font-semibold">
+            {{ $page.Params.language }}
+          </span>
+        {{- end -}}
+        <h3 class="text-foreground group-hover:text-primary text-lg leading-snug font-bold transition-colors duration-200">
+          {{ $page.Title }}
+        </h3>
+      </div>
+
+      <!-- Description -->
+      {{- if $summaryContent -}}
+        <p class="text-muted-foreground mb-4 line-clamp-2 text-sm leading-relaxed">
+          {{ $summaryContent }}
+        </p>
+      {{- end -}}
+
+      <!-- Meta: tags + date -->
+      <div class="text-muted-foreground mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+        {{- if isset $page.Params "tags" -}}
+          <div class="flex flex-wrap items-center gap-1.5">
+            {{ range $page.Params.tags }}
+              <span class="bg-muted/50 border-muted/30 rounded-md border px-2 py-0.5 text-xs font-medium">
+                {{ . }}
+              </span>
+            {{ end }}
+          </div>
+        {{- end -}}
+
+        <div class="ml-auto flex items-center gap-1.5">
+          {{ partial "features/icon.html" (dict "name" "calendar" "size" "sm" "ariaLabel" "") }}
+          <time datetime="{{ $page.Date.Format `2006-01-02` }}" class="font-medium">
+            {{ partial "helpers/date.html" (dict "date" $page.Date "variant" "long") }}
+          </time>
+        </div>
+      </div>
+    </div>
+  </a>
+</article>

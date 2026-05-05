@@ -80,3 +80,8 @@
     featuredProjects = "추천 프로젝트"
     viewAll          = "모두 보기"
     recentPosts      = "최근 글"
+
+
+[snippet]
+    empty    = "아직 스니펫이 없습니다"
+    language = "언어"

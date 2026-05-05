@@ -95,3 +95,8 @@
     featuredProjects = "مشاريع مميزة"
     viewAll          = "عرض الكل"
     recentPosts      = "أحدث المقالات"
+
+
+[snippet]
+    empty    = "لا توجد مقتطفات بعد"
+    language = "اللغة"

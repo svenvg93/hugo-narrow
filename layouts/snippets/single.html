@@ -1,0 +1,60 @@
+{{ define "main" }}
+  <!-- 头部信息 -->
+  <header class="mb-8">
+    <!-- 语言标签 -->
+    {{- if .Params.language -}}
+      <div class="mb-4">
+        <span class="bg-primary/10 text-primary rounded-md px-3 py-1 font-mono text-sm font-semibold">
+          {{ .Params.language }}
+        </span>
+      </div>
+    {{- end -}}
+
+    <!-- 标题 -->
+    <h1 class="text-foreground mb-4 text-3xl leading-tight font-bold md:text-4xl">
+      {{ .Title }}
+    </h1>
+
+    <!-- 描述 -->
+    {{- if .Params.description -}}
+      <p class="text-muted-foreground mb-6 text-lg leading-relaxed">
+        {{ .Params.description }}
+      </p>
+    {{- end -}}
+
+    <!-- 日期与标签 -->
+    <div class="bg-card border-border rounded-xl border p-5">
+      <div class="text-muted-foreground flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+        <div class="flex items-center gap-2">
+          {{ partial "features/icon.html" (dict "name" "calendar" "size" "sm" "ariaLabel" "") }}
+          <time datetime="{{ .Date.Format `2006-01-02` }}">
+            {{ partial "helpers/date.html" (dict "date" .Date "variant" "long") }}
+          </time>
+        </div>
+
+        {{- $tags := .GetTerms "tags" -}}
+        {{- if $tags -}}
+          <div class="flex flex-wrap items-center gap-1.5">
+            {{ partial "features/icon.html" (dict "name" "tags" "size" "sm" "ariaLabel" "") }}
+            {{- range $tags -}}
+              <a
+                href="{{ .RelPermalink }}"
+                class="bg-muted/50 hover:bg-muted text-muted-foreground hover:text-foreground rounded-full px-2.5 py-1 text-xs font-medium transition-colors duration-200"
+              >
+                {{ .LinkTitle }}
+              </a>
+            {{- end -}}
+          </div>
+        {{- end -}}
+      </div>
+    </div>
+  </header>
+
+  <!-- 内容 -->
+  <article class="prose prose-neutral dark:prose-invert mb-12 max-w-none">
+    {{ .Content }}
+  </article>
+
+  <!-- 评论 -->
+  {{ partial "features/comments.html" . }}
+{{ end }}

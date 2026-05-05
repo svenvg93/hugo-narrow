@@ -83,3 +83,8 @@
     featuredProjects = "Progetti in evidenza"
     viewAll          = "Vedi tutto"
     recentPosts      = "Articoli recenti"
+
+
+[snippet]
+    empty    = "Nessuno snippet ancora"
+    language = "Linguaggio"
