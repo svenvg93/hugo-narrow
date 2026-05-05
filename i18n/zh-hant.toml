@@ -80,3 +80,14 @@
     featuredProjects = "特色專案"
     viewAll          = "查看全部"
     recentPosts      = "最近文章"
+
+[resume]
+  experience     = "工作經歷"
+  education      = "教育背景"
+  skills         = "技能"
+  certifications = "證書"
+  languages      = "語言能力"
+  present        = "至今"
+  print          = "列印 / 儲存為 PDF"
+  contact        = "聯絡方式"
+  summary        = "個人簡介"

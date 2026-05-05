@@ -83,3 +83,14 @@
 
 
  
+
+[resume]
+  experience     = "工作经历"
+  education      = "教育背景"
+  skills         = "技能"
+  certifications = "证书"
+  languages      = "语言能力"
+  present        = "至今"
+  print          = "打印 / 保存为 PDF"
+  contact        = "联系方式"
+  summary        = "个人简介"

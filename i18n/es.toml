@@ -83,3 +83,14 @@
     featuredProjects = "Proyectos destacados"
     viewAll          = "Ver todo"
     recentPosts      = "Artículos recientes"
+
+[resume]
+  experience     = "Experiencia"
+  education      = "Educación"
+  skills         = "Habilidades"
+  certifications = "Certificaciones"
+  languages      = "Idiomas"
+  present        = "Presente"
+  print          = "Imprimir / Guardar PDF"
+  contact        = "Contacto"
+  summary        = "Resumen"

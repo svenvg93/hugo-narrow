@@ -157,3 +157,54 @@
   max-width: 100%;
   padding: 1em 0;
 }
+
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+
+  /* hide all chrome */
+  header,
+  footer,
+  [data-dock],
+  .dock,
+  .toc-sidebar,
+  .reading-progress-bar,
+  .resume-print-btn,
+  nav {
+    display: none !important;
+  }
+
+  /* force white/black */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* keep cards readable */
+  .bg-card {
+    background: white !important;
+    border-color: #e5e7eb !important;
+    box-shadow: none !important;
+  }
+
+  .text-muted-foreground {
+    color: #6b7280 !important;
+  }
+
+  .text-primary {
+    color: black !important;
+    font-weight: 600;
+  }
+
+  /* avoid splitting entries across pages */
+  .resume-entry {
+    break-inside: avoid;
+  }
+
+  /* remove hover/animation artifacts */
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

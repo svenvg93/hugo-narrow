@@ -61,6 +61,12 @@ footer:
     params:
       icon: about
 
+  - name: Resume
+    pageRef: /resume
+    weight: 25
+    params:
+      icon: file-text
+
   - name: RSS Feed
     url: /index.xml
     weight: 30

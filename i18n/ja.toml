@@ -80,3 +80,14 @@
     featuredProjects = "注目のプロジェクト"
     viewAll          = "すべて表示"
     recentPosts      = "最近の記事"
+
+[resume]
+  experience     = "職歴"
+  education      = "学歴"
+  skills         = "スキル"
+  certifications = "資格・認定"
+  languages      = "言語"
+  present        = "現在"
+  print          = "印刷 / PDF 保存"
+  contact        = "連絡先"
+  summary        = "概要"
