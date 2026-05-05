@@ -12,22 +12,27 @@
   {{- $alertConfig := dict
     "note" (dict
     "colorVar" "note"
+    "icon" "info-circle"
     "defaultTitle" (T "article.alert.note")
     )
     "tip" (dict
     "colorVar" "tip"
+    "icon" "lightbulb"
     "defaultTitle" (T "article.alert.tip")
     )
     "important" (dict
     "colorVar" "important"
+    "icon" "alert-circle"
     "defaultTitle" (T "article.alert.important")
     )
     "warning" (dict
     "colorVar" "warning"
+    "icon" "alert-triangle"
     "defaultTitle" (T "article.alert.warning")
     )
     "caution" (dict
     "colorVar" "caution"
+    "icon" "alert-triangle"
     "defaultTitle" (T "article.alert.caution")
     )
     -}}
@@ -53,7 +58,7 @@
     <div
       class="{{ if $isCollapsible }}
         cursor-pointer
-      {{ end }} flex items-center justify-between px-6 py-6"
+      {{ end }} flex items-center justify-between px-4 py-3"
       {{ if $isCollapsible }}
         onclick="toggleAlert('{{ $alertId }}')" role="button" tabindex="0"
         aria-expanded="{{ $isExpanded }}" aria-controls="{{ $alertId }}-content"
@@ -61,8 +66,12 @@
       {{ end }}
     >
       <div class="flex items-center gap-3">
+        {{/* Alert icon */}}
+        <span style="color: var(--color-{{ $config.colorVar }});" class="shrink-0">
+          {{ partial "features/icon.html" (dict "name" $config.icon "size" "sm" "hidden" true) }}
+        </span>
         {{/* Alert title */}}
-        <h4 id="{{ $alertId }}-title" class="text-foreground/90 m-0 font-semibold">
+        <h4 id="{{ $alertId }}-title" class="text-foreground/90 m-0 text-base font-semibold">
           {{ $title }}
         </h4>
       </div>
@@ -80,7 +89,7 @@
       id="{{ $alertId }}-content"
       class="alert-content {{ if and $isCollapsible (not $isExpanded) }}
         hidden
-      {{ end }} px-6 pb-6"
+      {{ end }} px-4 pb-3"
     >
       <div class="prose prose-sm text-foreground/90 max-w-none">
         {{ .Text }}
