@@ -58,7 +58,7 @@
     {{ site.Params.defaultAuthor }}
   {{- end -}}"
 />
-<meta name="language" content="{{ site.Params.language | default site.LanguageCode }}" />
+<meta name="language" content="{{ site.Params.language | default site.Language.Locale }}" />
 
 <meta
   name="robots"

@@ -41,7 +41,7 @@
     {{- $languageMenuContent := "" -}}
     {{- range $site := $sites -}}
       {{- $lang := $site.Language.Lang -}}
-      {{- $langName := $site.Language.LanguageName | default $lang -}}
+      {{- $langName := $site.Language.Label | default $lang -}}
       {{- $isCurrent := eq $lang $currentLang -}}
 
       {{- /* 获取当前页面在目标语言下的URL */ -}}

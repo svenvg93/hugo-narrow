@@ -1,5 +1,5 @@
 baseURL: https://example.org/
-languageCode: en
+locale: en
 defaultContentLanguage: en
 defaultContentLanguageInSubdir: false
 title: Hugo Narrow

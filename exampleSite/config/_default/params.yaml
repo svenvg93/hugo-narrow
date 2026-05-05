@@ -231,7 +231,7 @@ readingProgress:
 # Customize the display format for article/page dates.
 # Accepted values:
 #   1) Hugo localization tokens (recommended): ":date_full" / ":date_long" / ":date_medium" / ":date_short"
-#      Automatically localized based on the current language's languageCode
+#      Automatically localized based on the current language's locale
 #      (e.g., en → "January 2, 2006", zh-Hans → "2006年1月2日").
 #   2) Go time layout string: reference time is "Mon Jan 2 15:04:05 MST 2006". Examples:
 #        "2006-01-02"           → 2024-05-01
