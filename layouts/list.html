@@ -29,7 +29,7 @@
             {{ if .Date }}
               <div class="text-muted-foreground mb-3 text-sm">
                 <time datetime="{{ .Date.Format ` 2006-01-02` }}">
-                  {{ .Date | time.Format ":date_medium" }}
+                  {{ partial "helpers/date.html" (dict "date" .Date "variant" "medium") }}
                 </time>
               </div>
             {{ end }}

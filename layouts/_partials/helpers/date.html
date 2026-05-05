@@ -1,0 +1,23 @@
+{{- /*
+  日期格式化辅助 partial。
+
+  根据 site.Params.dateFormat 渲染日期，可被 languages.<lang>.params.dateFormat 覆盖。
+  支持两种格式：
+    - Hugo 本地化 token：":date_full" / ":date_long" / ":date_medium" / ":date_short"
+      （依据当前语言的 languageCode 自动本地化输出）
+    - Go 时间布局串：例如 "2006-01-02"、"January 2, 2006"、"2006年1月2日"
+      （按字面输出，不本地化）
+
+  入参 (dict)：
+    date    : time.Time，必填
+    variant : "long" | "medium" | "short"，可选，默认 "medium"
+
+  使用示例：
+    {{ partial "helpers/date.html" (dict "date" .Date "variant" "long") }}
+*/ -}}
+{{- $date := .date -}}
+{{- $variant := .variant | default "medium" -}}
+{{- $defaults := dict "long" ":date_long" "medium" ":date_medium" "short" ":date_short" -}}
+{{- $configured := site.Params.dateFormat | default dict -}}
+{{- $format := (index $configured $variant) | default (index $defaults $variant) -}}
+{{- $date | time.Format $format -}}

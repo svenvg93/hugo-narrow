@@ -15,7 +15,7 @@
         <!-- 日期 -->
         {{ with .Params.date }}
           <div class="text-muted-foreground/60 mt-3 text-xs">
-            {{ . | time.Format ":date_long" }}
+            {{ partial "helpers/date.html" (dict "date" . "variant" "long") }}
           </div>
         {{ end }}
       </div>

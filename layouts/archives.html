@@ -91,7 +91,7 @@
                           <div class="flex items-center gap-1">
                             {{ partial "features/icon.html" (dict "name" "calendar" "size" "xs" "ariaLabel" "") }}
                             <time datetime="{{ .Date.Format `2006-01-02` }}">
-                              {{ .Date | time.Format ":date_short" }}
+                              {{ partial "helpers/date.html" (dict "date" .Date "variant" "short") }}
                             </time>
                           </div>
 
