@@ -225,3 +225,31 @@ codeblock:
 readingProgress:
   enabled: true
   showOnHomepage: false
+
+# Date format
+
+# Customize the display format for article/page dates.
+# Accepted values:
+#   1) Hugo localization tokens (recommended): ":date_full" / ":date_long" / ":date_medium" / ":date_short"
+#      Automatically localized based on the current language's languageCode
+#      (e.g., en → "January 2, 2006", zh-Hans → "2006年1月2日").
+#   2) Go time layout string: reference time is "Mon Jan 2 15:04:05 MST 2006". Examples:
+#        "2006-01-02"           → 2024-05-01
+#        "January 2, 2006"      → May 1, 2024
+#        "2006年1月2日"         → 2024年5月1日
+#        "Jan 2, 2006"          → May 1, 2024
+#        "02 Jan 2006"          → 01 May 2024
+# Usage:
+#   long   : Article detail page, homepage hero
+#   medium : List / card / timeline / JSON Feed
+#   short  : Archive page, previous/next article
+# Leave empty to keep the defaults below.
+# To configure per language, override via languages.<lang>.params.dateFormat in languages.yaml.
+dateFormat:
+  long: ":date_long"
+  medium: ":date_medium"
+  short: ":date_short"
+  # Custom examples:
+  # long: "January 2, 2006"
+  # medium: "2006-01-02"
+  # short: "01/02"
