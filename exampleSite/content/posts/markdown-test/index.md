@@ -160,6 +160,22 @@ async function fetchUser(id) {
 
 ![Sample Image](/images/01.avif "Sample Image")
 
+### Theme-Aware Images
+
+Add `|dark:path` to the image title to supply a dark-mode variant. The theme automatically shows the right image when the reader switches between light and dark mode — no JavaScript required.
+
+![Request flow diagram](/images/theme-demo-light.svg "Request flow diagram|dark:/images/theme-demo-dark.svg")
+
+The Markdown syntax for the image above:
+
+```markdown
+![alt text](light.png "My caption|dark:dark.png")
+![alt text](light.png "dark:dark.png")
+```
+
+Use `"caption|dark:dark-path"` when you want both a caption and a dark variant, or `"dark:dark-path"` when you only need the dark variant with no caption. Images without `dark:` in the title are displayed as normal.
+
+
 ## Links
 
 This is a [regular link](https://example.com).

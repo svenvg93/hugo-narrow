@@ -105,7 +105,8 @@ class GalleryLightbox {
     const hasCaption = this.config.showCaption && Boolean(item.captionHTML);
     const isSingleItem = items.length <= 1;
 
-    this.elements.image.src = item.src;
+    const isDark = document.documentElement.classList.contains('dark');
+    this.elements.image.src = (isDark && item.darkSrc) ? item.darkSrc : (item.lightSrc || item.src);
     this.elements.image.alt = item.alt || '';
     this.elements.counter.textContent = String(this.currentIndex + 1) + ' / ' + String(items.length);
     this.elements.caption.innerHTML = hasCaption ? item.captionHTML : '';

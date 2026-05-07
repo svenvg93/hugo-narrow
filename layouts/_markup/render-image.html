@@ -6,6 +6,16 @@
 {{- $dest := .Destination | safeURL -}}
 {{- $alt := .Text -}}
 {{- $caption := .Title -}}
+{{- $darkSrc := "" -}}
+{{/* 从 title 中解析深色模式图片路径，格式：caption|dark:path 或 dark:path */}}
+{{- if in .Title "|dark:" -}}
+  {{- $parts := split .Title "|dark:" -}}
+  {{- $caption = index $parts 0 -}}
+  {{- $darkSrc = index $parts 1 | safeURL -}}
+{{- else if hasPrefix .Title "dark:" -}}
+  {{- $caption = "" -}}
+  {{- $darkSrc = strings.TrimPrefix "dark:" .Title | safeURL -}}
+{{- end -}}
 
 {{/* 检查是否启用灯箱功能 */}}
 {{- $globalLightbox := site.Params.lightbox | default dict -}}
@@ -67,16 +77,43 @@
   data-image-src="{{ $imageUrl }}"
 >
   <div class="image-container">
-    {{/* 使用图片处理器生成图片HTML */}}
-    {{- partial "content/image-processor.html" (dict
-      "context" $pageContext
-      "src" $dest
-      "alt" $alt
-      "caption" $caption
-      "enablePlaceholder" false
-      "outputType" "img"
-      )
-    -}}
+    {{- if $darkSrc -}}
+      {{/* 浅色模式图片 */}}
+      <span class="theme-img-light">
+        {{- partial "content/image-processor.html" (dict
+          "context" $pageContext
+          "src" $dest
+          "alt" $alt
+          "caption" $caption
+          "enablePlaceholder" false
+          "outputType" "img"
+          )
+        -}}
+      </span>
+      {{/* 深色模式图片 */}}
+      <span class="theme-img-dark">
+        {{- partial "content/image-processor.html" (dict
+          "context" $pageContext
+          "src" $darkSrc
+          "alt" $alt
+          "caption" $caption
+          "enablePlaceholder" false
+          "outputType" "img"
+          )
+        -}}
+      </span>
+    {{- else -}}
+      {{/* 使用图片处理器生成图片HTML */}}
+      {{- partial "content/image-processor.html" (dict
+        "context" $pageContext
+        "src" $dest
+        "alt" $alt
+        "caption" $caption
+        "enablePlaceholder" false
+        "outputType" "img"
+        )
+      -}}
+    {{- end -}}
   </div>
 
   {{/* 图片说明 */}}

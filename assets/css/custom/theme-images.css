@@ -1,0 +1,4 @@
+/* Dark/light mode image variants — toggled by .dark class on <html> */
+.theme-img-dark { display: none; }
+.dark .theme-img-light { display: none; }
+.dark .theme-img-dark { display: block; }

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" width="600" height="220">
+  <rect width="600" height="220" fill="#1e1e2e" rx="12"/>
+
+  <!-- Title -->
+  <text x="300" y="36" font-family="sans-serif" font-size="15" font-weight="600" fill="#cdd6f4" text-anchor="middle">Request Flow (Dark Mode)</text>
+
+  <!-- Boxes -->
+  <rect x="30" y="60" width="120" height="44" rx="8" fill="#313244" stroke="#45475a" stroke-width="1.5"/>
+  <text x="90" y="87" font-family="sans-serif" font-size="13" fill="#cdd6f4" text-anchor="middle">Browser</text>
+
+  <rect x="240" y="60" width="120" height="44" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="300" y="87" font-family="sans-serif" font-size="13" fill="#93c5fd" text-anchor="middle">API Server</text>
+
+  <rect x="450" y="60" width="120" height="44" rx="8" fill="#14342a" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="510" y="87" font-family="sans-serif" font-size="13" fill="#86efac" text-anchor="middle">Database</text>
+
+  <!-- Arrows -->
+  <line x1="150" y1="82" x2="238" y2="82" stroke="#585b70" stroke-width="1.5" marker-end="url(#arr-dark)"/>
+  <line x1="360" y1="82" x2="448" y2="82" stroke="#585b70" stroke-width="1.5" marker-end="url(#arr-dark)"/>
+
+  <!-- Return arrows -->
+  <line x1="238" y1="94" x2="150" y2="94" stroke="#45475a" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr-dark-muted)"/>
+  <line x1="448" y1="94" x2="360" y2="94" stroke="#45475a" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr-dark-muted)"/>
+
+  <!-- Labels -->
+  <text x="194" y="76" font-family="sans-serif" font-size="10" fill="#6c7086" text-anchor="middle">request</text>
+  <text x="194" y="108" font-family="sans-serif" font-size="10" fill="#45475a" text-anchor="middle">response</text>
+  <text x="404" y="76" font-family="sans-serif" font-size="10" fill="#6c7086" text-anchor="middle">query</text>
+  <text x="404" y="108" font-family="sans-serif" font-size="10" fill="#45475a" text-anchor="middle">result</text>
+
+  <!-- Caption -->
+  <text x="300" y="180" font-family="sans-serif" font-size="11" fill="#6c7086" text-anchor="middle">Shown in dark mode — dark background, light text</text>
+
+  <defs>
+    <marker id="arr-dark" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#585b70"/>
+    </marker>
+    <marker id="arr-dark-muted" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#45475a"/>
+    </marker>
+  </defs>
+</svg>

@@ -197,14 +197,19 @@ class ImageGallery {
     const lightboxItems = [];
 
     figures.forEach((figure) => {
-      const img = figure.querySelector('img');
+      const lightImgEl = figure.querySelector('.theme-img-light img') || figure.querySelector('img');
+      const darkImgEl = figure.querySelector('.theme-img-dark img');
+      const isDark = document.documentElement.classList.contains('dark');
+      const img = (isDark && darkImgEl) ? darkImgEl : lightImgEl;
       const caption = figure.querySelector('.image-caption');
 
       if (!img) {
         return;
       }
 
-      const fullSizeSrc = figure.getAttribute('data-image-src') || img.currentSrc || img.src;
+      const lightSrc = figure.getAttribute('data-image-src') || lightImgEl?.src;
+      const darkSrc = darkImgEl ? darkImgEl.src : null;
+      const fullSizeSrc = isDark && darkSrc ? darkSrc : lightSrc;
       const previewSrc = img.currentSrc || img.src;
       const width = parseInt(figure.getAttribute('data-image-width'), 10) || img.naturalWidth || 800;
       const height = parseInt(figure.getAttribute('data-image-height'), 10) || img.naturalHeight || 600;
@@ -218,6 +223,8 @@ class ImageGallery {
 
       lightboxItems.push({
         src: fullSizeSrc,
+        lightSrc,
+        darkSrc,
         width,
         height,
         alt: img.alt || '',
@@ -309,7 +316,10 @@ class ImageGallery {
     }
 
     figures.forEach((figure) => {
-      const img = figure.querySelector('img');
+      const lightImgEl = figure.querySelector('.theme-img-light img') || figure.querySelector('img');
+      const darkImgEl = figure.querySelector('.theme-img-dark img');
+      const isDark = document.documentElement.classList.contains('dark');
+      const img = (isDark && darkImgEl) ? darkImgEl : lightImgEl;
       const caption = figure.querySelector('.image-caption');
       if (!img) {
         return;
@@ -318,12 +328,16 @@ class ImageGallery {
       const galleryId = 'single-image-' + String(this.singleImageCount);
       this.singleImageCount += 1;
 
-      const src = figure.getAttribute('data-image-src') || img.currentSrc || img.src;
+      const lightSrc = figure.getAttribute('data-image-src') || lightImgEl?.src;
+      const darkSrc = darkImgEl ? darkImgEl.src : null;
+      const src = isDark && darkSrc ? darkSrc : lightSrc;
       const width = parseInt(figure.getAttribute('data-image-width'), 10) || img.naturalWidth || 800;
       const height = parseInt(figure.getAttribute('data-image-height'), 10) || img.naturalHeight || 600;
 
       this.lightbox.registerGallery(galleryId, [{
         src,
+        lightSrc,
+        darkSrc,
         width,
         height,
         alt: img.alt || '',
